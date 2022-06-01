@@ -41,3 +41,4 @@ package.lock.json
 *.md
 
 index.html
+.husky

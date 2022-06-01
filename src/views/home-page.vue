@@ -6,7 +6,7 @@ export default defineComponent({
     return {}
   },
   render() {
-    return <div class={"red"}>home-page</div>
+    return <div class={"red"}>home-page hello world</div>
   }
 })
 </script>
