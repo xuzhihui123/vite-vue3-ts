@@ -3,6 +3,8 @@ import { defineComponent } from "vue"
 export default defineComponent({
   name: "HomePage",
   setup() {
+    let data = 1
+    console.log(data)
     return {}
   },
   render() {
