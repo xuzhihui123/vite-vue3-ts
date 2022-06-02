@@ -6,11 +6,11 @@ import "vue"
 declare module "@vue/runtime-core" {
   export interface GlobalComponents {
     ElButton: typeof import("element-plus/es")["ElButton"]
-    ElConfigProvider: typeof import("element-plus/es")["ElConfigProvider"]
     ElDatePicker: typeof import("element-plus/es")["ElDatePicker"]
     RouterLink: typeof import("vue-router")["RouterLink"]
     RouterView: typeof import("vue-router")["RouterView"]
     SvgIcon: typeof import("./src/components/common/SvgIcon.vue")["default"]
+    TestCom: typeof import("./src/components/common/TestCom.vue")["default"]
   }
 }
 

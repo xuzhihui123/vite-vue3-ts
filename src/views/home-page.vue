@@ -1,5 +1,5 @@
 <script lang="tsx">
-import { defineComponent, ref } from "vue"
+import { defineComponent, ref, resolveComponent } from "vue"
 import { getUsers } from "@/api/test"
 export default defineComponent({
   name: "HomePage",
@@ -13,12 +13,14 @@ export default defineComponent({
     }
   },
   render() {
+    let com = resolveComponent("test-com")
     return (
       <div class={"red"}>
         home-page hello world
         <svg-icon name={"phone"} />
         <el-button type={"primary"}>success</el-button>
         <el-date-picker v-model={this.value1} type="date" placeholder="Pick a day" />
+        <com />
       </div>
     )
   }
