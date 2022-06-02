@@ -10,6 +10,8 @@ import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
 
+import viteCompression from "vite-plugin-compression" // 生产环境压缩
+
 const resolve = path.resolve
 
 export default ({ mode }: ConfigEnv) => {
@@ -43,7 +45,8 @@ export default ({ mode }: ConfigEnv) => {
         iconDirs: [resolve(process.cwd(), "src/assets/svg")],
         // 执行icon name的格式
         symbolId: "icon-[dir]-[name]"
-      })
+      }),
+      viteCompression() // 打包压缩，主要是本地gzip，如果服务器配置压缩也可以
     ],
     resolve: {
       // 别名
