@@ -48,6 +48,10 @@ export default ({ mode }: ConfigEnv) => {
       }),
       viteCompression() // 打包压缩，主要是本地gzip，如果服务器配置压缩也可以
     ],
+    build: {
+      // 构建配置
+      rollupOptions: {}
+    },
     resolve: {
       // 别名
       // 配置别名
