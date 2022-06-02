@@ -1,10 +1,12 @@
 <script lang="tsx">
 import { defineComponent } from "vue"
+import { getUsers } from "@/api/test"
 export default defineComponent({
   name: "HomePage",
   setup() {
-    let data = 1
-    console.log(data)
+    getUsers().then((r) => {
+      console.log(r.data)
+    })
     return {}
   },
   render() {

@@ -1,13 +1,14 @@
-import { defineConfig, loadEnv } from "vite"
+import { defineConfig, loadEnv, ConfigEnv } from "vite"
 // 导入类型
 // import type { UserConfig } from "vite"
 import vue from "@vitejs/plugin-vue"
 import * as path from "path"
 import vueJsx from "@vitejs/plugin-vue-jsx" // jsx
+import { viteMockServe } from "vite-plugin-mock" // mock
 
 const resolve = path.resolve
 
-export default ({ mode }) => {
+export default ({ mode }: ConfigEnv) => {
   // loadEnv方法拿到.env.production或者开发环境设置的环境变量
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
 
@@ -22,6 +23,10 @@ export default ({ mode }) => {
       vue(),
       vueJsx({
         // options are passed on to @vue/babel-plugin-jsx
+      }),
+      viteMockServe({
+        mockPath: "./src/mock",
+        supportTs: true //如果使用 js发开，则需要配置 supportTs 为 false
       })
     ],
     resolve: {
