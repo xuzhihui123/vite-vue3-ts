@@ -5,6 +5,9 @@ import vue from "@vitejs/plugin-vue"
 import * as path from "path"
 import vueJsx from "@vitejs/plugin-vue-jsx" // jsx
 import { viteMockServe } from "vite-plugin-mock" // mock
+import AutoImport from "unplugin-auto-import/vite"
+import Components from "unplugin-vue-components/vite"
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
 
 const resolve = path.resolve
 
@@ -27,6 +30,12 @@ export default ({ mode }: ConfigEnv) => {
       viteMockServe({
         mockPath: "./src/mock",
         supportTs: true //如果使用 js发开，则需要配置 supportTs 为 false
+      }),
+      AutoImport({
+        resolvers: [ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()]
       })
     ],
     resolve: {

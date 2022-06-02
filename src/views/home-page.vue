@@ -10,7 +10,12 @@ export default defineComponent({
     return {}
   },
   render() {
-    return <div class={"red"}>home-page hello world</div>
+    return (
+      <div class={"red"}>
+        home-page hello world
+        <el-button type={"primary"}>success</el-button>
+      </div>
+    )
   }
 })
 </script>
