@@ -5,6 +5,7 @@ import vue from "@vitejs/plugin-vue"
 import * as path from "path"
 import vueJsx from "@vitejs/plugin-vue-jsx" // jsx
 import { viteMockServe } from "vite-plugin-mock" // mock
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons" // svg
 import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
@@ -36,6 +37,12 @@ export default ({ mode }: ConfigEnv) => {
       }),
       Components({
         resolvers: [ElementPlusResolver()]
+      }),
+      createSvgIconsPlugin({
+        // 指定要缓存的图标文件夹
+        iconDirs: [resolve(process.cwd(), "src/assets/svg")],
+        // 执行icon name的格式
+        symbolId: "icon-[dir]-[name]"
       })
     ],
     resolve: {

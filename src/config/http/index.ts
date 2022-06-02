@@ -1,5 +1,5 @@
 import axios, { AxiosResponse, AxiosRequestConfig, CancelTokenStatic, AxiosInstance } from "axios"
-import { baseURL, requestTimeout, statusName, messageName, CODE_MESSAGE } from "@/config/http.config"
+import { baseURL, requestTimeout, statusName, messageName, CODE_MESSAGE } from "@/config/http/http.config"
 import qs from "qs" // 参数序列化
 
 // 返回数据类型

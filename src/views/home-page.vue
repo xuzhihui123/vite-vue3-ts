@@ -13,6 +13,7 @@ export default defineComponent({
     return (
       <div class={"red"}>
         home-page hello world
+        <svg-icon name={"phone"} />
         <el-button type={"primary"}>success</el-button>
       </div>
     )

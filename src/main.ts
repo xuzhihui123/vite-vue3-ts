@@ -1,11 +1,13 @@
 import { createApp } from "vue"
-// 1.1 安装后 导入
-import router from "./router"
+import { initRouter } from "./router"
+import { initStore } from "./store"
+import "virtual:svg-icons-register"
 import App from "@/App.vue"
-import store from "./store"
+import { registryGlobalComponent } from "./components/common"
 
 const app = createApp(App)
-// 1.2. use挂载
-app.use(router).use(store)
-
+initStore(app)
+initRouter(app)
+// 全局注册组件
+registryGlobalComponent(app)
 app.mount("#app")
