@@ -193,7 +193,7 @@ class MyRequest {
    * @param data
    * @param config
    */
-  public post(url: string, data: any = {}, config: object = {}): Promise<IResponse> {
+  public post<T = IResponse>(url: string, data: any = {}, config: object = {}): Promise<T> {
     return new Promise((resolve, reject) => {
       this.service.post(url, data, config).then((result) => {
         resolve(result.data)
@@ -207,7 +207,7 @@ class MyRequest {
    * @param params
    * @param config
    */
-  public get(url: string, params: any = {}, config: object = {}): Promise<IResponse> {
+  public get<T = IResponse>(url: string, params: any = {}, config: object = {}): Promise<T> {
     return new Promise((resolve, reject) => {
       this.service.get(`${url}?${qs.stringify(params)}`, config).then((result) => {
         resolve(result.data)
